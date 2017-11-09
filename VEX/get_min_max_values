@@ -1,0 +1,7 @@
+string attrib_name = chs("attribute_name");
+
+addattrib(0, "detail", concat("min_", attrib_name), 1000000000.0);
+addattrib(0, "detail", concat("max_", attrib_name), -1000000000.0);
+
+setdetailattrib(0, concat("min_", attrib_name), @input_att, "min");
+setdetailattrib(0, concat("max_", attrib_name), @input_att, "max");
