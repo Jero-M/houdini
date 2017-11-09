@@ -1,0 +1,15 @@
+#include <voplib.h>
+float amp = ch("amplitude");
+vector freq = chv("frequency");
+vector offset = chv("offset");
+float rough = ch("roughness");
+vector scale = chv("scale");
+int absolute = chi("absolute");
+float exponent = ch("soften");
+float push = ch("push");
+
+vector aafnoise = vop_fbmFlowNoiseFV(@P * freq - offset, rough, 8,0,1,0) * amp;
+if (absolute) aafnoise = abs(aafnoise);
+aafnoise = pow(aafnoise, exponent);
+
+@P += @N * aafnoise * push;
