@@ -1,0 +1,1 @@
+@grad = float(@ptnum)/(@numpt - 1);
