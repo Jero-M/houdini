@@ -1,0 +1,29 @@
+#include <voplib.h>
+float amp = ch("amplitude");
+vector freq = chv("frequency");
+vector offset = chv("offset");
+float rough = ch("roughness");
+vector scale = chv("scale");
+float exponent = ch("soften");
+
+float aafnoise = vop_fbmFlowNoiseFV(@P * freq - offset, rough, 8,0,1,0) * amp;
+#include <voplib.h>
+float amp = ch("amplitude");
+vector freq = chv("frequency");
+vector offset = chv("offset");
+float rough = ch("roughness");
+vector scale = chv("scale");
+float exponent = ch("soften");
+
+float aafnoise = vop_fbmFlowNoiseFV(@P * freq - offset, rough, 8,0,1,0) * amp;
+
+aafnoise = fit(aafnoise, -1, 1, 0, 1);
+aafnoise = chramp("look_up", aafnoise);
+aafnoise = pow(aafnoise, exponent);
+
+@Cd = scale * aafnoise;
+aafnoise = fit(aafnoise, -1, 1, 0, 1);
+aafnoise = chramp("look_up", aafnoise);
+aafnoise = pow(aafnoise, exponent);
+
+@Cd = scale * aafnoise;
