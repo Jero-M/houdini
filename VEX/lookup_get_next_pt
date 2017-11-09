@@ -1,0 +1,14 @@
+int handle = pcopen(0, "P", @P, 10.0, 3);
+float dist = -1;
+int pt = -1;
+vector queryN = -1;
+
+while (pciterate(handle)){
+    pcimport(handle, "point.number", pt);
+    pcimport(handle, "point.distance", dist);
+    queryN = normalize(point(0, "P", pt) - @P);
+    if (dot(@N, queryN) > 1)
+        i@next_pt = pt;
+        @dist_to_pt = dist;
+    
+}
