@@ -1,0 +1,3 @@
+string attrib_name = chs("attribute_name");
+
+@input_att = fit(@input_att, detail(0, concat("min_", attrib_name), 0), detail(0, concat("max_", attrib_name), 0), 0 , 1) ;
