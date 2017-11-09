@@ -1,0 +1,4 @@
+float radius = ch("radius");
+int handle = pcopen(0, "P", @P, radius, 5);
+if (pcnumfound(handle) == 1)
+  removepoint(0, @ptnum);
