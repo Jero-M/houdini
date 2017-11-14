@@ -1,5 +1,11 @@
-# houdini
-A collection of Houdini OTLs
+# Houdini
+A collection of Houdini OTLs & scripts
 
-Alembic Xform Points
-Xform Points
+- Procedural Corals
+- Packed Transform Points
+- Transform Points
+- Extract Transform
+- Nuke Merge
+- Copy Values
+- Group VEX
+- VEX Snippets
